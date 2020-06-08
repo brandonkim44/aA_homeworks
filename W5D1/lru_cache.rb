@@ -9,13 +9,13 @@
     end
 
     def add(el)
-        if self.count < @max_cache_size && @underlying_array.include?(el)
-            delete(el)
-            @underlying_array << el
-        elsif self.count < @max_cache_size
-            @underlying_array << el
+        if @underlying_array.include?(el)
+          delete(el)
+          @underlying_array << el
+        elsif self.count == @max_cache_size
+          remove_lru_add(el)
         else
-            rotate(el)
+          @underlying_array << el
         end
     end
 
@@ -25,7 +25,7 @@
 
     private
     # helper methods go here!
-    def rotate(el)
+    def remove_lru_add(el)
         @underlying_array.shift
         @underlying_array << el
     end
