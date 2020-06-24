@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 feature "the signup process" do
 
   scenario "has a new user page" do
@@ -13,7 +15,9 @@ feature "the signup process" do
       click_on "Create User"
     end
 
-    scenario "redirects to bands index page after signup"
+    scenario "redirects to bands index page after signup" do
+        expect(page).to have_content "Yay, you successfully created an account with Music App!"
+    end
   end
 
   feature "with an invalid user" do
@@ -23,7 +27,9 @@ feature "the signup process" do
       click_on "create user"
     end
 
-    scenario "re-renders the signup page after failed signup"
+    scenario "re-renders the signup page after failed signup" do
+        expect(page).to have_content "Password is too short (minimum is 6 characters)"
+    end
   end
 
 end
