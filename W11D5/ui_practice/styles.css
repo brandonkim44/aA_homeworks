@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Neuton:wght@700&display=swap');
+
+.img {
+    height: 500px;
+}
+
+.img-container {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: 'Neuton', serif;
+  font-size: 50px;
+  -webkit-text-stroke: 1px black;
+}
+
+.centered {
+    position: absolute;
+    top: -300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
